@@ -1,0 +1,47 @@
+to_do_list = []
+
+while True:
+    print("\n---- TO-DO LIST ----")
+    print("1. Tambah Tugas")
+    print("2. Lihat Semua Tugas")
+    print("3. Hapus Tugas")
+    print("4. Keluar")
+
+    pilihan = input("pilih menu (1-4):")
+
+    if pilihan == '1':
+        tugas_baru = input("masukkan tugas baru :")
+        to_do_list.append(tugas_baru)
+        print(f"Tugas '{tugas_baru}' telah ditambahkan.")
+        pass
+
+    elif pilihan == '2':
+        if to_do_list:
+            print("\nDaftar To-Do List:")
+            for idx, tugas in enumerate(to_do_list, start=1):
+                print(f"{idx}. {tugas}")
+            else:
+                print("Tidak ada tugas lain.")
+        pass
+
+    elif pilihan == '3':
+        if to_do_list:
+            print("\nDaftar To-Do List:")
+            for idx, tugas in enumerate(to_do_list, start=1):
+                print(f"{idx}. {tugas}")
+
+            nomor_hapus = int(input("Masukkan nomor tugas yang ingin dihapus:"))
+            if 1 <= nomor_hapus <= len(to_do_list):
+                tugas_hapus = to_do_list.pop(nomor_hapus - 1)
+                print(f"Tugas '{tugas_hapus}' telah dihapus.")
+            else:
+                print("Nomor tidak valid.")
+        else:
+            print("Tidak ada tugas untuk dihapus.")
+
+    elif pilihan == '4':
+        print("Keluar dari program.")
+        break 
+    else:
+        print("Pilihan tidak valid. Coba lagi.")
+
